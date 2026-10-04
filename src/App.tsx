@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, Menu, X, Copy, Check, Activity, Radio, LockKeyhole } from 'lucide-react';
 
 // Populate these values when the community's official links and token details are ready.
-const CONTRACT_ADDRESS = '';
-const PUMPFUN_URL = '';
-const X_URL = '';
-const TELEGRAM_URL = '';
+const projectConfig: { contractAddress: string; pumpfunUrl: string; xUrl: string; telegramUrl: string } = { contractAddress: '', pumpfunUrl: '', xUrl: '', telegramUrl: '' };
+const CONTRACT_ADDRESS = projectConfig.contractAddress;
+const PUMPFUN_URL = projectConfig.pumpfunUrl;
+const X_URL = projectConfig.xUrl;
+const TELEGRAM_URL = projectConfig.telegramUrl;
 
 const nav = [{ label: 'ERA', href: '#era' }, { label: 'MANIFESTO', href: '#manifesto' }, { label: 'ARCHIVE', href: '#archive' }, { label: 'INTELLIGENCE', href: '#intelligence' }];
 const archive = [
