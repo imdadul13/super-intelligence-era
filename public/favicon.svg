@@ -1,35 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
-  <title id="title">SIE — Intelligence Network</title>
-  <defs>
-    <radialGradient id="coreGlow"><stop stop-color="#9cc9e6" stop-opacity=".13"/><stop offset="1" stop-color="#9cc9e6" stop-opacity="0"/></radialGradient>
-    <linearGradient id="layer" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9cc9e6" stop-opacity=".68"/><stop offset="1" stop-color="#f5f5f0" stop-opacity=".22"/></linearGradient>
-  </defs>
-  <rect width="1024" height="1024" rx="224" fill="#08090b"/>
-  <rect x="36" y="36" width="952" height="952" rx="192" fill="none" stroke="#26343b" stroke-width="3"/>
-  <circle cx="512" cy="483" r="350" fill="url(#coreGlow)"/>
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <g stroke="#6d8490" stroke-opacity=".55" stroke-width="3">
-      <path d="M208 238 330 198 512 244 694 198 816 238M208 238 298 340 512 244 726 340 816 238M298 340 356 402M726 340 668 402M330 198 400 384M694 198 624 384"/>
-    </g>
-    <g fill="#a9c0c9" stroke="none">
-      <circle cx="208" cy="238" r="7"/><circle cx="330" cy="198" r="6"/><circle cx="512" cy="244" r="8"/><circle cx="694" cy="198" r="6"/><circle cx="816" cy="238" r="7"/><circle cx="298" cy="340" r="6"/><circle cx="726" cy="340" r="6"/>
-    </g>
-    <path d="M512 568v42" stroke="#9cc9e6" stroke-opacity=".65" stroke-width="3" stroke-dasharray="5 9"/>
-    <g stroke="url(#layer)" stroke-width="3">
-      <path d="m512 605 224 112-224 112-224-112 224-112Z"/>
-      <path d="m512 676 224 112-224 112-224-112 224-112Z"/>
-      <path d="m512 747 224 112-224 112-224-112 224-112Z"/>
-    </g>
-    <g stroke="#9cc9e6" stroke-opacity=".3" stroke-width="2">
-      <path d="m288 717 224 112 224-112M288 788l224 112 224-112M288 859l224 112 224-112"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">SIE</title>
+  <g fill="none" stroke="#9cc9e6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m10 13 11-6 11 8L43 7l11 6M10 13l8 10 14-8 14 8 8-10" stroke-width="1.4" opacity=".8"/>
+    <path d="M32 17v6m0 29v3m0 0-12 4 12 4 12-4-12-4Z" stroke-width="1.5"/>
   </g>
-  <g fill="#9cc9e6">
-    <circle cx="512" cy="605" r="5"/><circle cx="288" cy="717" r="5"/><circle cx="736" cy="717" r="5"/><circle cx="288" cy="788" r="4"/><circle cx="736" cy="788" r="4"/><circle cx="288" cy="859" r="5"/><circle cx="736" cy="859" r="5"/><circle cx="512" cy="971" r="5"/>
+  <g fill="#d8eff9">
+    <circle cx="10" cy="13" r="1.7"/><circle cx="21" cy="7" r="1.5"/><circle cx="32" cy="15" r="1.8"/>
+    <circle cx="43" cy="7" r="1.5"/><circle cx="54" cy="13" r="1.7"/><circle cx="18" cy="23" r="1.4"/><circle cx="46" cy="23" r="1.4"/>
+    <circle cx="32" cy="23" r="1.5"/><circle cx="32" cy="53" r="1.5"/>
   </g>
-  <rect x="280" y="386" width="464" height="184" rx="28" fill="#0b0e11" stroke="#526773" stroke-width="3"/>
-  <path d="M315 420h86M623 420h86" stroke="#526773" stroke-width="2" stroke-linecap="round" opacity=".7"/>
-  <circle cx="421" cy="420" r="3" fill="#9cc9e6"/><circle cx="603" cy="420" r="3" fill="#9cc9e6"/>
-  <text x="512" y="526" text-anchor="middle" fill="#f5f5f0" font-family="Manrope, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="150" font-weight="600" letter-spacing="-7">SIE</text>
-  <path d="M456 548h112" stroke="#9cc9e6" stroke-width="4" stroke-linecap="round"/><circle cx="588" cy="548" r="4" fill="#9cc9e6"/>
+  <text x="32" y="47" text-anchor="middle" fill="#f5f7f7" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="-1.5">SIE</text>
 </svg>
