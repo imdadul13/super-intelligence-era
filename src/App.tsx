@@ -1,12 +1,17 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, Menu, X, Copy, Check, Activity, Radio, LockKeyhole } from 'lucide-react';
 
-// Populate these values when the community's official links and token details are ready.
-const projectConfig: { contractAddress: string; pumpfunUrl: string; xUrl: string; telegramUrl: string } = { contractAddress: '', pumpfunUrl: '', xUrl: '', telegramUrl: '' };
-const CONTRACT_ADDRESS = projectConfig.contractAddress;
-const PUMPFUN_URL = projectConfig.pumpfunUrl;
-const X_URL = projectConfig.xUrl;
-const TELEGRAM_URL = projectConfig.telegramUrl;
+// Add official URLs and token details here when they are available.
+const projectConfig = {
+  projectName: 'SUPER INTELLIGENCE ERA',
+  ticker: '$SIE',
+  network: 'Solana',
+  contractAddress: '',
+  pumpFunUrl: '',
+  xUrl: '',
+  websiteUrl: '',
+  launchStatus: 'PRE-LAUNCH',
+};
 
 const nav = [{ label: 'ERA', href: '#era' }, { label: 'MANIFESTO', href: '#manifesto' }, { label: 'ARCHIVE', href: '#archive' }, { label: 'INTELLIGENCE', href: '#intelligence' }, { label: 'TOKEN', href: '#token' }];
 const archive = [
@@ -19,7 +24,7 @@ const feedPreview = [
   { source: 'SIE OBSERVATORY', time: 'QUEUE 002', category: 'CULTURE', title: 'The public feed is being prepared for future dispatches.' },
 ];
 
-function Brand() { return <a className="brand" href="#era" aria-label="SIE home"><span className="brand-mark">S<span>.</span></span><span className="brand-name">SUPER INTELLIGENCE ERA</span></a>; }
+function Brand() { return <a className="brand" href={projectConfig.websiteUrl || '#era'} aria-label={`${projectConfig.projectName} home`}><span className="brand-mark">S<span>.</span></span><span className="brand-name">{projectConfig.projectName}</span></a>; }
 function Eyebrow({ children }: { children: React.ReactNode }) { return <div className="eyebrow"><span className="eyebrow-dot" />{children}</div>; }
 function SectionTag({ children }: { children: React.ReactNode }) { return <p className="section-tag">{children}</p>; }
 
@@ -39,9 +44,9 @@ function Navbar() {
     <Brand />
     <div className={`nav-links ${open ? 'is-open' : ''}`}>
       {nav.map(item => <a className={active === item.href ? 'active' : ''} key={item.label} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>)}
-      <div className="mobile-social"><a href={X_URL || '#community'}>X <ArrowUpRight size={13}/></a><a href={TELEGRAM_URL || '#community'}>TELEGRAM <ArrowUpRight size={13}/></a></div>
+      <div className="mobile-social"><a href={projectConfig.xUrl || '#token'}>X <ArrowUpRight size={13}/></a></div>
     </div>
-    <div className="nav-actions"><a className="social-link" href={X_URL || '#community'} aria-label="X community">X <ArrowUpRight size={12}/></a><a className="social-link" href={TELEGRAM_URL || '#community'}>TELEGRAM <ArrowUpRight size={12}/></a><a className="nav-cta" href="#token">ENTER ERA <ArrowRight size={14}/></a></div>
+    <div className="nav-actions"><a className="social-link" href={projectConfig.xUrl || '#token'} aria-label="X community">X <ArrowUpRight size={12}/></a><a className="nav-cta" href="#token">ENTER ERA <ArrowRight size={14}/></a></div>
     <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>{open ? <X/> : <Menu/>}</button>
   </nav></header>;
 }
@@ -88,11 +93,11 @@ function Principles() {
 }
 function TokenSection() {
  const [copied, setCopied] = useState(false);
- const copy = async () => { if (!CONTRACT_ADDRESS) return; try { await navigator.clipboard.writeText(CONTRACT_ADDRESS); setCopied(true); window.setTimeout(() => setCopied(false), 1800); } catch { /* Clipboard may be unavailable outside a secure context. */ } };
- return <section className="section token-section" id="token"><span id="community" className="anchor-alias"/><div className="container token-layout"><div className="token-intro"><SectionTag>07 <span>//</span> COMMUNITY SIGNAL</SectionTag><p className="token-overline">THE ERA HAS A SIGNAL.</p><h2>SUPER<br/>INTELLIGENCE<br/>ERA<span>.</span></h2><div className="ticker-lockup"><span>$SIE</span><i/> IDENTITY LAYER</div><p className="token-note">An unofficial community / meme project on Solana. A cultural signal for the idea of what comes next.</p></div><div className="token-panel"><div className="token-panel-head mono"><span>SIE / NETWORK RECORD</span><span>PUBLIC</span></div><div className="token-data-row"><span>NETWORK</span><b>SOLANA</b><span className="network-glyph">◎</span></div><div className="token-data-row contract-row"><span>CONTRACT</span>{CONTRACT_ADDRESS ? <><code>{CONTRACT_ADDRESS.slice(0,5)}…{CONTRACT_ADDRESS.slice(-5)}</code><button className="copy-button" onClick={copy} aria-label="Copy contract address">{copied ? <Check size={15}/> : <Copy size={15}/>} {copied ? 'COPIED' : 'COPY'}</button></> : <b className="pending">COMING SOON</b>}</div><div className="token-data-row"><span>COMMUNITY</span><div className="token-socials"><a href={X_URL || '#community'}>X <ArrowUpRight size={13}/></a><a href={TELEGRAM_URL || '#community'}>TELEGRAM <ArrowUpRight size={13}/></a></div></div><div className="token-data-row"><span>PUMPFUN</span>{PUMPFUN_URL ? <a className="token-link" href={PUMPFUN_URL}>VIEW <ArrowUpRight size={13}/></a> : <b className="pending">COMING SOON</b>}</div><p className="token-panel-foot mono">NO CONTRACT ADDRESS HAS BEEN PUBLISHED.</p></div></div></section>;
+ const copy = async () => { if (!projectConfig.contractAddress) return; try { await navigator.clipboard.writeText(projectConfig.contractAddress); setCopied(true); window.setTimeout(() => setCopied(false), 1800); } catch { /* Clipboard may be unavailable outside a secure context. */ } };
+ return <section className="section token-section" id="token"><div className="container token-layout"><div className="token-intro"><SectionTag>07 <span>//</span> COMMUNITY SIGNAL</SectionTag><p className="token-overline">THE ERA HAS A SIGNAL.</p><h2>{projectConfig.projectName.split(' ').map((word, index) => <Fragment key={word}>{index > 0 && <br/>}{word}</Fragment>)}<span>.</span></h2><div className="ticker-lockup"><span>{projectConfig.ticker}</span><i/> IDENTITY LAYER</div><p className="token-note">An unofficial community / meme project on Solana. A cultural signal for the idea of what comes next.</p></div><div className="token-panel"><div className="token-panel-head mono"><span>SIE / NETWORK RECORD</span><span>{projectConfig.launchStatus}</span></div><div className="token-data-row"><span>NETWORK</span><b>{projectConfig.network.toUpperCase()}</b><span className="network-glyph">◎</span></div><div className="token-data-row contract-row"><span>CONTRACT</span>{projectConfig.contractAddress ? <><code>{projectConfig.contractAddress.slice(0,5)}…{projectConfig.contractAddress.slice(-5)}</code><button className="copy-button" onClick={copy} aria-label="Copy contract address">{copied ? <Check size={15}/> : <Copy size={15}/>} {copied ? 'COPIED' : 'COPY'}</button></> : <b className="pending">COMING SOON</b>}</div><div className="token-data-row"><span>COMMUNITY</span><div className="token-socials"><a href={projectConfig.xUrl || '#token'}>X <ArrowUpRight size={13}/></a></div></div><div className="token-data-row"><span>PUMPFUN</span>{projectConfig.pumpFunUrl ? <a className="token-link" href={projectConfig.pumpFunUrl}>VIEW <ArrowUpRight size={13}/></a> : <b className="pending">COMING SOON</b>}</div><p className="token-panel-foot mono">NO CONTRACT ADDRESS HAS BEEN PUBLISHED.</p></div></div></section>;
 }
 function FinalCTA() { return <section className="final-section"><div className="final-grain"/><div className="container final-inner"><SectionTag>08 <span>//</span> THE NEXT ERA</SectionTag><h2>WELCOME TO<br/>THE SUPER<br/><span>INTELLIGENCE ERA.</span></h2><div className="final-bottom"><p>THE OLD ERA HAD AI.<br/><strong>THIS ERA HAS SI.</strong></p><a className="button button-primary" href="#era">ENTER THE ERA <ArrowRight size={15}/></a></div><div className="final-coordinate mono">SIE — AN OPEN IDEA</div></div></section>; }
-function Footer() { return <footer className="footer"><div className="container footer-main"><Brand/><div className="footer-year mono">2026 <span>©</span></div><div className="footer-links"><a href={X_URL || '#community'}>X <ArrowUpRight size={13}/></a><a href={TELEGRAM_URL || '#community'}>TELEGRAM <ArrowUpRight size={13}/></a><a href={PUMPFUN_URL || '#community'}>PUMPFUN <ArrowUpRight size={13}/></a></div></div><div className="container footer-legal"><p>Unofficial community / meme project. Not affiliated with or endorsed by any government, company, organization, or public figure. No investment promise or representation is made.</p><a href="#era" className="back-top mono">BACK TO TOP ↑</a></div></footer>; }
+function Footer() { return <footer className="footer"><div className="container footer-main"><Brand/><div className="footer-year mono">2026 <span>©</span></div><div className="footer-links"><a href={projectConfig.xUrl || '#token'}>X <ArrowUpRight size={13}/></a><a href={projectConfig.pumpFunUrl || '#token'}>PUMPFUN <ArrowUpRight size={13}/></a></div></div><div className="container footer-legal"><p>Unofficial community / meme project. Not affiliated with or endorsed by any government, company, organization, or public figure. </p><a href="#era" className="back-top mono">BACK TO TOP ↑</a></div></footer>; }
 function App() {
  useEffect(() => { const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); } }), { threshold: 0.12 }); document.querySelectorAll('.section, .final-inner').forEach(el => observer.observe(el)); return () => observer.disconnect(); }, []);
  return <><Navbar/><main><Hero/><ShiftSection/><SystemStatus/><Manifesto/><Archive/><IntelligenceFeed/><WatchingSection/><Principles/><TokenSection/><FinalCTA/></main><Footer/></>;

@@ -18,11 +18,6 @@ npm run preview
 
 ## Community configuration
 
-Edit the constants at the top of `src/App.tsx` when official links and a contract are ready:
+Edit `projectConfig` at the top of `src/App.tsx` when official links and token details are ready. It contains the project name, ticker, network, contract address, Pump.fun URL, X URL, website URL, and launch status.
 
-- `CONTRACT_ADDRESS`
-- `PUMPFUN_URL`
-- `X_URL`
-- `TELEGRAM_URL`
-
-Until configured, community references use safe on-page placeholders and no fake contract address is displayed. Archive and intelligence data are clearly labeled demo/placeholder content.
+Until configured, links use on-page placeholders and no fake contract address is displayed. Archive and intelligence content is clearly labeled as demo/placeholder data.
